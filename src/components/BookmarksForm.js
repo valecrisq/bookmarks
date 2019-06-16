@@ -3,13 +3,17 @@ import { connect } from 'react-redux';
 
 import { addBookmark } from '../action/bookmarks';
 
-const BookmarksForm = ({ dispatch }) => {
+const BookmarksForm = ({ bookmarks, dispatch }) => {
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addBookmark({ title, link }));
+    if (!bookmarks.find(bookmark => bookmark.link === link)) {
+        dispatch(addBookmark({title, link}));
+    } else {
+        alert('Link Already Exists!')
+    }
   };
 
 
@@ -22,4 +26,5 @@ const BookmarksForm = ({ dispatch }) => {
   );
 };
 
-export default connect()(BookmarksForm);
+const mapStateToProps = ({bookmarks}) => ({bookmarks});
+export default connect(mapStateToProps)(BookmarksForm);

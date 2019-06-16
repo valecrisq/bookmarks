@@ -4,21 +4,23 @@ import { createStore } from 'redux';
 import reducers from './reducers';
 
 import BookmarksForm from './components/BookmarksForm';
+import BookmarksContainer from "./components/BookmarksContainer";
 
 import './App.css';
-/* eslint-disable no-underscore-dangle */
-const store = createStore(
-    reducers, /* preloadedState, */
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-/* eslint-enable */
+
+const getState = () => {
+        const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+        return { bookmarks }
+    }
+
+const store = createStore(reducers, getState());
 
 function App() {
   return (
     <div className="App">
       <Provider store={store}>
         <BookmarksForm />
-        {/* <BookmarksContainer /> */}
+        <BookmarksContainer />
       </Provider>
     </div>
   );

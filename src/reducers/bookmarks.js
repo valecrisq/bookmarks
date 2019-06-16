@@ -1,4 +1,4 @@
-import { ADD_BOOKMARK } from '../action/bookmarks';
+import {ADD_BOOKMARK, REMOVE_BOOKMARK} from '../action/bookmarks';
 
 const bookmarks = (state = [], action) => {
   switch (action.type) {
@@ -13,6 +13,21 @@ const bookmarks = (state = [], action) => {
 
       return bookmarksList;
     }
+
+    case REMOVE_BOOKMARK: {
+
+      const {bookmark} = action;
+      const bookmarksList = [...state];
+
+      const bookmarksIndex = bookmarksList.findIndex(bookmarkItem => bookmarkItem.link === bookmark.link);
+
+      bookmarksList.splice(bookmarksIndex, 1);
+
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarksList));
+
+      return bookmarksList;
+    }
+
     default:
       return state;
   }
