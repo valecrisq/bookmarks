@@ -1,0 +1,19 @@
+.bookmarks-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 83%;
+}
+
+.bookmark-list {
+    padding: 3%;
+    margin-left: 10%;
+}
+
+.bookmarks-section h3:nth-child(1) {
+    margin-left: 5%;
+}
+
+.bookmarks-section h3:nth-child(2) {
+    margin-left: 60%;
+}

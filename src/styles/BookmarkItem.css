@@ -1,0 +1,29 @@
+.bookmark-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.title-container {
+    display: flex;
+    width: 40rem;
+    height: 2rem;
+}
+
+.link-container {
+    display: flex;
+    text-align: left;
+    width: 40rem;
+}
+
+.link {
+    overflow:hidden;
+    white-space:nowrap; 
+    text-overflow:ellipsis; 
+    width: 500px; 
+}
+
+.link:focus {
+    overflow: visible;
+}

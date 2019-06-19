@@ -1,0 +1,15 @@
+.bookmark {
+    display: flex;;
+}
+
+
+button[type=button] {
+    height: 15%;
+    background-color: whitesmoke;
+    color: black;
+    margin: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  

@@ -1,16 +1,17 @@
 import React from 'react';
 import BookmarkItem from './BookmarkItem';
 
-const BookmarksList = ({bookmarks, onBookmarkRemove}) => {
-    return(
-        bookmarks.map((bookmark) => {
-            return (
-                <div key={bookmark.link} onClick={() => onBookmarkRemove(bookmark)}>
-                    <BookmarkItem bookmark={bookmark} />
-                </div>
-            )
-        })
-    )
-};
+import '../styles/BookmarksList.css';
+
+const BookmarksList = ({ bookmarks, onBookmarkRemove }) => (
+  bookmarks.map(bookmark => (
+    <div className="bookmark" key={bookmark.link}>
+      <button type="button" onClick={() => onBookmarkRemove(bookmark)}>
+        <i className="fas fa-trash-alt fa-lg" />
+      </button>
+      <BookmarkItem bookmark={bookmark} />
+    </div>
+  ))
+);
 
 export default BookmarksList;

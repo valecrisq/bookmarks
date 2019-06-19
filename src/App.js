@@ -4,14 +4,14 @@ import { createStore } from 'redux';
 import reducers from './reducers';
 
 import BookmarksForm from './components/BookmarksForm';
-import BookmarksContainer from "./components/BookmarksContainer";
+import BookmarksContainer from './components/BookmarksContainer';
 
 import './App.css';
 
 const getState = () => {
-        const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-        return { bookmarks }
-    }
+  const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+  return { bookmarks };
+};
 
 const store = createStore(reducers, getState());
 
@@ -20,6 +20,7 @@ function App() {
     <div className="App">
       <Provider store={store}>
         <BookmarksForm />
+        <hr />
         <BookmarksContainer />
       </Provider>
     </div>
